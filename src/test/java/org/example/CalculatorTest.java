@@ -11,4 +11,15 @@ public class CalculatorTest {
     public void testEmptyString(){
         assertEquals(0, calc.add(""));
     }
+
+    @Test
+    public void testSingleNumber() {
+        assertEquals(51, calc.add("51"));
+    }
+
+    @Test
+    public void testTwoNumbers() {
+        assertEquals(11, calc.add("5,6"));
+    }
+
 }
