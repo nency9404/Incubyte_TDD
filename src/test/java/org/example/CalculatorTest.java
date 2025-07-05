@@ -7,6 +7,7 @@ import static junit.framework.Assert.assertEquals;
 public class CalculatorTest {
 
     String_Calculator calc=new String_Calculator();
+
     @Test
     public void testEmptyString(){
         assertEquals(0, calc.add(""));
@@ -21,5 +22,4 @@ public class CalculatorTest {
     public void testTwoNumbers() {
         assertEquals(11, calc.add("5,6"));
     }
-
 }

@@ -10,6 +10,6 @@ public class String_Calculator {
         for (String token : tokens) {
             sum += Integer.parseInt(token);
         }
-        return sum;
+    return sum;
     }
 }
