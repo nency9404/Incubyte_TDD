@@ -26,6 +26,11 @@ public class CalculatorTest {
     }
 
     @Test
+    public void testTrailingDelimiter() {
+        assertEquals(6, calc.add("1,2,3,"));
+    }
+
+    @Test
     public void testMultipleNumbers() {
         assertEquals(1100000, calc.add("200000,200000,300000,400000"));
     }
@@ -60,5 +65,15 @@ public class CalculatorTest {
     @Test
     public void testCustomDelimiterAnyLength() {
         assertEquals(16, calc.add("//[**]\n11**2**3"));
+    }
+
+    @Test
+    public void testLargeInput() {
+        StringBuilder input = new StringBuilder();
+        for (int i = 1; i <= 1000; i++) {
+            input.append(i).append(",");
+        }
+        input.setLength(input.length() - 1);
+        assertEquals(500500, calc.add(input.toString()));
     }
 }
