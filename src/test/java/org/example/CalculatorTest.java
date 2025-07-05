@@ -56,4 +56,9 @@ public class CalculatorTest {
         assertTrue(ex.getMessage().contains("-10"));
         assertTrue(ex.getMessage().contains("-22"));
     }
+
+    @Test
+    public void testCustomDelimiterAnyLength() {
+        assertEquals(16, calc.add("//[**]\n11**2**3"));
+    }
 }
