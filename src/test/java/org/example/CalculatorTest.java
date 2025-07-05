@@ -3,6 +3,8 @@ package org.example;
 import org.junit.jupiter.api.Test;
 
 import static junit.framework.Assert.assertEquals;
+import static junit.framework.Assert.assertTrue;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 public class CalculatorTest {
 
@@ -36,5 +38,13 @@ public class CalculatorTest {
     @Test
     public void testCustomDelimiter() {
         assertEquals(34, calc.add("//;\n12;22"));
+    }
+
+    @Test
+    public void testNegativeNumber() {
+        Exception ex = assertThrows(IllegalArgumentException.class, () -> {
+            calc.add("5,-5");
+        });
+        assertTrue(ex.getMessage().contains("-5"));
     }
 }
