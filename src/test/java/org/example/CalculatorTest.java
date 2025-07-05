@@ -76,4 +76,18 @@ public class CalculatorTest {
         input.setLength(input.length() - 1);
         assertEquals(500500, calc.add(input.toString()));
     }
+
+    @Test
+    public void testWhitespaceAroundNumbers() {
+        assertEquals(6, calc.add(" 1  ,2 ,3"));
+    }
+
+    @Test
+    public void testNegativeNumbersWithMultipleDelimiters() {
+        Exception ex = assertThrows(IllegalArgumentException.class, () -> {
+            calc.add("//[*][%]\n-11*22%-35");
+        });
+        assertTrue(ex.getMessage().contains("-11"));
+        assertTrue(ex.getMessage().contains("-35"));
+    }
 }
