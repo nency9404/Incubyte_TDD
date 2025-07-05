@@ -27,4 +27,9 @@ public class CalculatorTest {
     public void testMultipleNumbers() {
         assertEquals(1100000, calc.add("200000,200000,300000,400000"));
     }
+
+    @Test
+    public void testNewlineAsDelimiter() {
+        assertEquals(16, calc.add("11\n2,3"));
+    }
 }
