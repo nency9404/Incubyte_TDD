@@ -22,4 +22,9 @@ public class CalculatorTest {
     public void testTwoNumbers() {
         assertEquals(11, calc.add("5,6"));
     }
+
+    @Test
+    public void testMultipleNumbers() {
+        assertEquals(1100000, calc.add("200000,200000,300000,400000"));
+    }
 }
