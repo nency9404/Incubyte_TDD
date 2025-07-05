@@ -90,4 +90,9 @@ public class CalculatorTest {
         assertTrue(ex.getMessage().contains("-11"));
         assertTrue(ex.getMessage().contains("-35"));
     }
+
+    @Test
+    public void testOnlyDelimitersNoNumbers() {
+        assertEquals(0, calc.add(",,,\n\n"));
+    }
 }
