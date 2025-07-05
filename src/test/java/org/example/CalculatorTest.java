@@ -47,4 +47,13 @@ public class CalculatorTest {
         });
         assertTrue(ex.getMessage().contains("-5"));
     }
+
+    @Test
+    public void testMultipleNegativesInException() {
+        Exception ex = assertThrows(IllegalArgumentException.class, () -> {
+            calc.add("-10,-22,3");
+        });
+        assertTrue(ex.getMessage().contains("-10"));
+        assertTrue(ex.getMessage().contains("-22"));
+    }
 }
